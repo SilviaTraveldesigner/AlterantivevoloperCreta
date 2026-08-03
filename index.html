@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milano/Bologna → Heraklion, Creta · Silvia Travel Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#1f3b44;
+    --teal:#43899d;
+    --gold:#ffcf00;
+    --ink:#1f2e33;
+    --ink-mid:#5b6b70;
+    --paper:#fbf9f5;
+    --line:#e4ddce;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    color:var(--teal-deep);
+  }
+  .container{max-width:880px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg,var(--teal-deep),var(--teal));
+    color:#fff;
+    padding:64px 24px 48px;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+    font-weight:600;
+  }
+  .hero h1{
+    color:#fff;
+    font-size:44px;
+    font-style:italic;
+    font-weight:500;
+    line-height:1.15;
+  }
+  .hero h1 em{color:var(--gold);font-style:italic;}
+  .hero .sub{
+    margin-top:16px;
+    font-size:16px;
+    color:#e7f0f2;
+    letter-spacing:0.5px;
+  }
+  .hero .updated{
+    margin-top:28px;
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--teal-deep);
+    background:var(--gold);
+    padding:6px 16px;
+    border-radius:20px;
+    font-weight:600;
+  }
+
+  /* INTRO */
+  .intro{
+    padding:48px 24px 8px;
+    text-align:center;
+  }
+  .intro p{
+    max-width:620px;
+    margin:0 auto;
+    color:var(--ink-mid);
+    font-size:16px;
+  }
+
+  /* OPTIONS */
+  .options{padding:32px 24px 16px;}
+  .option-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    margin-bottom:32px;
+    overflow:hidden;
+    box-shadow:0 6px 24px rgba(31,59,68,0.06);
+  }
+  .option-head{
+    background:var(--teal-deep);
+    color:#fff;
+    padding:20px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .option-head .label{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    font-style:italic;
+  }
+  .option-head .tag{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    background:var(--gold);
+    padding:4px 12px;
+    border-radius:14px;
+    font-weight:700;
+  }
+
+  .flight-block{padding:26px 28px 8px;}
+  .flight-block-header-left{
+    font-size:13px;
+    color:var(--ink-mid);
+    letter-spacing:0.5px;
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  .flight-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 0;
+  }
+  .flight-point{text-align:center;min-width:96px;}
+  .flight-point .code{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    font-weight:600;
+    color:var(--teal-deep);
+  }
+  .flight-point .city{
+    font-size:12px;
+    color:var(--ink-mid);
+    margin-top:2px;
+  }
+  .flight-point .time{
+    font-size:19px;
+    font-weight:600;
+    margin-top:6px;
+    color:var(--ink);
+  }
+  .flight-line{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+  }
+  .flight-line .duration{font-size:12px;color:var(--ink-mid);}
+  .flight-line .track{
+    width:100%;
+    height:1px;
+    background:var(--line);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .flight-line svg{
+    background:#fff;
+    padding:0 6px;
+    width:22px;
+    height:22px;
+    color:var(--gold);
+  }
+  .flight-stopover{
+    text-align:center;
+    font-size:12px;
+    color:var(--teal);
+    background:#f0f5f2;
+    border-radius:8px;
+    padding:8px 14px;
+    margin:2px 0 8px;
+    font-weight:500;
+  }
+
+  .step-date{
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-top:2px;
+  }
+
+  /* DETAILS */
+  .details{
+    padding:8px 28px 24px;
+    border-top:1px solid var(--line);
+    margin-top:12px;
+  }
+  .details ul{list-style:none;margin-top:16px;}
+  .details li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14.5px;
+    color:var(--ink);
+    padding:6px 0;
+  }
+  .details li svg{
+    flex-shrink:0;
+    width:18px;
+    height:18px;
+    margin-top:2px;
+    color:var(--teal);
+  }
+  .kia-note{
+    font-size:13px;
+    color:var(--ink-mid);
+    font-style:italic;
+    margin-top:14px;
+  }
+
+  /* PRICE */
+  .price-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    background:#f7f3ea;
+    padding:20px 28px;
+    border-top:1px solid var(--line);
+  }
+  .display-price{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;
+    font-weight:600;
+    color:var(--teal-deep);
+  }
+  .display-price small{
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink-mid);
+    display:block;
+    margin-top:2px;
+  }
+  .price-alert{
+    font-size:12px;
+    color:var(--ink-mid);
+    max-width:280px;
+  }
+
+  /* NOTE FINALE */
+  .closing{
+    padding:36px 24px 60px;
+    text-align:center;
+  }
+  .closing p{
+    max-width:560px;
+    margin:0 auto 8px;
+    color:var(--ink-mid);
+    font-size:15px;
+  }
+
+  footer{
+    background:var(--teal-deep);
+    color:#cfe0e4;
+    text-align:center;
+    padding:32px 24px;
+    font-size:13px;
+  }
+  footer .brand{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--gold);
+    margin-bottom:6px;
+  }
+  footer .updated-footer{
+    margin-top:10px;
+    font-size:11px;
+    color:#8fa9ae;
+    letter-spacing:0.5px;
+  }
+
+  .whatsapp-btn{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    background:#25D366;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+    z-index:999;
+  }
+  .whatsapp-btn svg{width:28px;height:28px;fill:#fff;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:600px){
+    .hero h1{font-size:32px;}
+    .flight-point .code{font-size:24px;}
+    .flight-point .time{font-size:16px;}
+    .display-price{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">Silvia Travel Designer</div>
+  <h1>Verso <em>Creta</em></h1>
+  <div class="sub">Due strade per raggiungere Heraklion — a te la scelta</div>
+  <div class="updated">Preventivo aggiornato al 3 Agosto 2026</div>
+</section>
+
+<div class="container">
+
+  <div class="intro reveal">
+    <p>Ho messo a confronto due soluzioni di volo per Heraklion: una diretta e più rapida, l'altra con uno scalo ad Atene ma a un costo più contenuto sul bagaglio a mano. Qui sotto trovi tutti i dettagli, trasferimenti privati inclusi in entrambe le opzioni.</p>
+  </div>
+
+  <div class="options">
+
+    <!-- OPZIONE 1 -->
+    <div class="option-card reveal">
+      <div class="option-head">
+        <span class="label">Opzione 1 · Volo diretto</span>
+        <span class="tag">Lunedì 28 Settembre</span>
+      </div>
+
+      <div class="flight-block">
+        <div class="flight-block-header-left">Andata · Milano Bergamo → Heraklion</div>
+        <div class="step-date">28 Settembre 2026</div>
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="code">BGY</div>
+            <div class="city">Milano Bergamo</div>
+            <div class="time">10:15</div>
+          </div>
+          <div class="flight-line">
+            <div class="duration">2h 40m · diretto</div>
+            <div class="track">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1.5 4.5 1.5V21l-3-2v-5.5z"/></svg>
+            </div>
+          </div>
+          <div class="flight-point">
+            <div class="code">HER</div>
+            <div class="city">Heraklion, Creta</div>
+            <div class="time">13:55</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Bagaglio da stiva 20 kg incluso · posto a sedere prenotato incluso</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Nessun bagaglio a mano da cabina — è ammessa solo una borsa piccola, misure massime 40 x 30 x 20 cm</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Trasferimento privato aeroporto → hotel incluso</span>
+          </li>
+        </ul>
+        <div class="kia-note">Soluzione più rapida: si atterra a Creta nel primo pomeriggio, con tutto il resto della giornata a disposizione.</div>
+      </div>
+
+      <div class="price-bar">
+        <div class="display-price">160,00 €
+          <small>totale, incluso trasferimento privato</small>
+        </div>
+        <div class="price-alert">Tariffa aggiornata al 3 Agosto 2026 — soggetta a riconferma al momento della prenotazione.</div>
+      </div>
+    </div>
+
+    <!-- OPZIONE 2 -->
+    <div class="option-card reveal">
+      <div class="option-head">
+        <span class="label">Opzione 2 · Con scalo ad Atene</span>
+        <span class="tag">Domenica 27 Settembre</span>
+      </div>
+
+      <div class="flight-block">
+        <div class="flight-block-header-left">Andata · Bologna → Atene → Heraklion</div>
+        <div class="step-date">27 Settembre 2026</div>
+
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="code">BLQ</div>
+            <div class="city">Bologna</div>
+            <div class="time">15:20</div>
+          </div>
+          <div class="flight-line">
+            <div class="duration">3h 05m</div>
+            <div class="track">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1.5 4.5 1.5V21l-3-2v-5.5z"/></svg>
+            </div>
+          </div>
+          <div class="flight-point">
+            <div class="code">ATH</div>
+            <div class="city">Atene</div>
+            <div class="time">18:25</div>
+          </div>
+        </div>
+
+        <div class="flight-stopover">Scalo ad Atene · 1 ora 55 minuti</div>
+
+        <div class="flight-row">
+          <div class="flight-point">
+            <div class="code">ATH</div>
+            <div class="city">Atene</div>
+            <div class="time">20:20</div>
+          </div>
+          <div class="flight-line">
+            <div class="duration">55m</div>
+            <div class="track">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-3 2v1.5l4.5-1.5 4.5 1.5V21l-3-2v-5.5z"/></svg>
+            </div>
+          </div>
+          <div class="flight-point">
+            <div class="code">HER</div>
+            <div class="city">Heraklion, Creta</div>
+            <div class="time">21:15</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Bagaglio a mano incluso, fino a 8 kg</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Bagaglio da stiva disponibile con supplemento, da aggiungere in fase di prenotazione</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Trasferimento privato aeroporto → hotel incluso</span>
+          </li>
+        </ul>
+        <div class="kia-note">Un piccolo scalo ad Atene, giusto il tempo di uno sguardo dal finestrino — e un risparmio importante sul bagaglio a mano.</div>
+      </div>
+
+      <div class="price-bar">
+        <div class="display-price">240,00 €
+          <small>totale, con trasferimenti privati inclusi</small>
+        </div>
+        <div class="price-alert">Tariffa aggiornata al 3 Agosto 2026 — soggetta a riconferma al momento della prenotazione.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="closing reveal">
+    <p>Entrambe le opzioni includono il trasferimento privato in hotel: nessuna attesa, nessun taxi da cercare all'arrivo. Fammi sapere quale delle due preferisci e procedo subito con la prenotazione.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="brand">Silvia Travel Designer</div>
+  <div>L'angelo che ti segue dall'inizio alla fine</div>
+  <div class="updated-footer">Preventivo generato il 3 Agosto 2026 · Tariffe variabili, verificate al momento della conferma</div>
+</footer>
+
+<a href="https://wa.me/393897816237?text=Ciao%20Silvia%2C%20ho%20visto%20le%20due%20opzioni%20di%20volo%20per%20Creta%20e%20vorrei%20procedere!" class="whatsapp-btn" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.87 11.87L4 20l4.24-1.11a7.9 7.9 0 0 0 3.8.97h.003c4.36 0 7.94-3.55 7.94-7.93a7.9 7.9 0 0 0-2.37-5.61zm-5.55 12.2h-.003a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.58 6.58 0 0 1-1.01-3.51c0-3.64 2.97-6.6 6.62-6.6a6.58 6.58 0 0 1 4.68 1.94 6.55 6.55 0 0 1 1.94 4.66c0 3.64-2.97 6.6-6.61 6.6zm3.63-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.63.77-.11.13-.23.15-.43.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.5-.16-.38-.33-.33-.45-.34-.12 0-.25-.01-.38-.01-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.67 0 .98.72 1.93.82 2.06.1.13 1.41 2.15 3.42 3.02.48.2.85.33 1.14.42.48.15.92.13 1.26.08.39-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.09-.18-.14-.38-.24z"/></svg>
+</a>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+  },{threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
